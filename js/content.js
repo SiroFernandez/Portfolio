@@ -190,7 +190,7 @@ export const I18N = {
     navContact: "Contacto",
     heroEyebrow: "Portfolio",
     heroRole: "Ingeniería Informática · Universidad Complutense de Madrid",
-    heroLead: "Estudiante de Ingeniería Informática en la Universidad Complutense de Madrid. Desarrollo software y me interesan la ciberseguridad y las apps móviles. Busco prácticas o un contrato a tiempo parcial.",
+    heroLead: "Estudiante de Ingeniería Informática en la Universidad Complutense de Madrid. Desarrollo software y me interesan la ciberseguridad y las apps móviles.",
     ctaProjects: "Ver proyectos",
     ctaContact: "Contacto",
     scroll: "Desplázate",
@@ -264,7 +264,7 @@ export const I18N = {
 
     contactEyebrow: "Correspondencia",
     contactTitle: "Contacto",
-    contactText: "Si tienes una oportunidad de prácticas o quieres comentar alguno de mis proyectos, escríbeme.",
+    contactText: "Si quieres comentar alguno de mis proyectos, escríbeme.",
     copyBtn: "Copiar email",
     copied: "Email copiado al portapapeles.",
     footer: "© 2026 Siro Fernández García",
