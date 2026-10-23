@@ -15,7 +15,7 @@ body {
   /* papel envejecido con viñeta: los bordes se oscurecen como en una lámina antigua */
   background:
     radial-gradient(130% 90% at 50% 40%, transparent 55%, rgba(120, 84, 40, .16) 100%) fixed,
-    url("../assets/img/paper.webp") 0 0 / 512px,
+    url("../assets/img/paper.webp?v=20261023b") 0 0 / 512px,
     var(--paper);
   color: var(--ink);
   font-family: var(--font-sans);
@@ -29,7 +29,7 @@ body {
 body::before {
   content: "";
   position: fixed; inset: 0; z-index: 100; pointer-events: none;
-  background-image: url("../assets/img/grain.png");
+  background-image: url("../assets/img/grain.png?v=20261023b");
   background-size: 256px;
   opacity: .06;
   mix-blend-mode: multiply;
@@ -94,7 +94,7 @@ main:focus { outline: none; }
 .eyebrow .numeral {
   display: inline-grid; place-items: center;
   width: 80px; height: 50px; flex: none;
-  background: url("../assets/ornaments/cartouche.svg") center / contain no-repeat;
+  background: url("../assets/ornaments/cartouche.svg?v=20261023b") center / contain no-repeat;
   font-family: var(--font-display);
   font-size: 1.15rem; letter-spacing: .04em;
   color: var(--carmine);

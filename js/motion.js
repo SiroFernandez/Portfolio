@@ -3,7 +3,7 @@
    Todo con transform/opacity en un único requestAnimationFrame,
    y desactivado si el sistema pide reducir el movimiento.
    ================================================================== */
-import { prefersReducedMotion } from "./utils.js";
+import { prefersReducedMotion } from "./utils.js?v=20261023b";
 
 export function initMotion() {
   const reduce = prefersReducedMotion();

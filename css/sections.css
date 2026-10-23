@@ -79,7 +79,7 @@
 .hero__role {
   font-family: var(--font-caps); font-size: clamp(1.05rem, .95rem + .45vw, 1.3rem); letter-spacing: .08em;
   color: var(--gold-bright); margin-bottom: var(--space-5); text-wrap: balance;
-  text-shadow: 0 1px 14px rgba(0, 0, 0, .8);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .9), 0 0 18px rgba(12, 8, 5, .95), 0 0 36px rgba(12, 8, 5, .8);
 }
 .hero__lead {
   max-width: 36rem !important; margin: 0 0 var(--space-6);
@@ -159,7 +159,7 @@
 }
 .balance__side::before, .balance__side::after { /* volutas en las esquinas */
   content: ""; position: absolute; width: 38px; height: 38px; top: 10px; left: 10px;
-  background: url("../assets/ornaments/corner.svg") center / contain no-repeat; pointer-events: none;
+  background: url("../assets/ornaments/corner.svg?v=20261023b") center / contain no-repeat; pointer-events: none;
 }
 .balance__side::after { left: auto; right: 10px; transform: scaleX(-1); }
 .balance__title { font-size: clamp(2rem, 1.5rem + 1.3vw, 2.6rem); display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-5); padding-inline: var(--space-4); }
@@ -177,7 +177,7 @@
 .tablet {
   position: relative;
   padding: var(--space-6) var(--space-5) var(--space-5);
-  background: url("../assets/img/marble.webp") center / 640px, var(--paper-light);
+  background: url("../assets/img/marble.webp?v=20261023b") center / 640px, var(--paper-light);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-relief), var(--shadow-rest), 0 0 0 1px rgba(46, 32, 21, .3);
   transition: transform var(--dur-slow) var(--ease-silk), box-shadow var(--dur-slow) var(--ease-silk);
@@ -255,7 +255,7 @@
 .edu::before { /* cartela sobre la ficha de formación */
   content: ""; position: absolute; left: 50%; top: -26px; transform: translateX(-50%);
   width: 104px; height: 66px;
-  background: url("../assets/ornaments/cartouche.svg") center / contain no-repeat, radial-gradient(closest-side, var(--paper-light) 60%, transparent 62%);
+  background: url("../assets/ornaments/cartouche.svg?v=20261023b") center / contain no-repeat, radial-gradient(closest-side, var(--paper-light) 60%, transparent 62%);
 }
 .edu__label { font-family: var(--font-caps); font-size: 1.1rem; letter-spacing: var(--tracking-caps); color: var(--carmine); margin-bottom: var(--space-4); }
 .edu__degree { font-family: var(--font-display); font-size: 1.85rem; line-height: 1.15; margin-bottom: var(--space-2); }

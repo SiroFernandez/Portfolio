@@ -1,8 +1,8 @@
 /* ==================================================================
    GALERÍA · tarjetas de obra, filtros con animación FLIP y modal
    ================================================================== */
-import { FILTERS, PROJECTS, I18N } from "./content.js";
-import { $, el, toRoman, prefersReducedMotion } from "./utils.js";
+import { FILTERS, PROJECTS, I18N } from "./content.js?v=20261023b";
+import { $, el, toRoman, prefersReducedMotion } from "./utils.js?v=20261023b";
 
 const tr = (v, lang) => (v && typeof v === "object" && !Array.isArray(v) ? v[lang] : v);
 
