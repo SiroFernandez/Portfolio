@@ -1,16 +1,16 @@
 /* ==================================================================
-   MOVIMIENTO · parallax multicapa, apariciones, luz del puntero
-   Todo con transform/opacity en un único requestAnimationFrame,
-   y desactivado si el sistema pide reducir el movimiento.
+   MOVIMIENTO · parallax escénico por planos, apariciones, luz de sol
+   Un único requestAnimationFrame; solo transform/opacity; se detiene
+   fuera de pantalla y se desactiva con prefers-reduced-motion.
    ================================================================== */
-import { prefersReducedMotion } from "./utils.js?v=20261023b";
+import { prefersReducedMotion } from "./utils.js?v=colina1";
 
 export function initMotion() {
   const reduce = prefersReducedMotion();
   const root = document.documentElement;
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-  /* ---------- Cabecera: vidrio al hacer scroll ---------- */
+  /* ---------- Cabecera ---------- */
   const updateHeader = () => root.classList.toggle("is-scrolled", window.scrollY > 24);
   updateHeader();
 
@@ -30,62 +30,61 @@ export function initMotion() {
   observeReveals();
   document.addEventListener("content:rendered", observeReveals);
 
-  /* ---------- Parallax ---------- */
-  const hero = document.querySelector(".hero");
-  const heroLayers = [...document.querySelectorAll(".hero__scene [data-depth]")];
-  const contact = document.querySelector(".contact");
-  const contactLayers = [...document.querySelectorAll(".contact__sky [data-depth]")];
-  let heroVisible = true, contactVisible = false;
-
+  /* ---------- Parallax por planos ----------
+     Cada sección con data-parallax tiene capas con data-depth:
+     · "top"    → la capa se desplaza según el scroll desde arriba (portada)
+     · "center" → según la distancia del centro de la sección al centro de la pantalla
+     Profundidad positiva = el plano va más lento (lejano); negativa = más rápido (cercano). */
+  const scopes = [...document.querySelectorAll("[data-parallax]")].map((el) => ({
+    el,
+    mode: el.dataset.parallax,
+    visible: false,
+    layers: [...el.querySelectorAll("[data-depth]")].map((l) => ({
+      l,
+      d: parseFloat(l.dataset.depth),
+      centered: l.classList.contains("is-centered") || l.matches(".contact__hill, .contact__near"),
+      mouse: l.dataset.mouse === "1"
+    }))
+  }));
   if ("IntersectionObserver" in window) {
-    new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; }).observe(hero);
-    new IntersectionObserver(([e]) => { contactVisible = e.isIntersecting; }).observe(contact);
-  }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { const s = scopes.find((x) => x.el === e.target); if (s) s.visible = e.isIntersecting; });
+    }, { rootMargin: "20% 0px 20% 0px" });
+    scopes.forEach((s) => io.observe(s.el));
+  } else scopes.forEach((s) => { s.visible = true; });
 
-  // Puntero: posición objetivo y suavizada (lerp) para una sensación etérea
   const target = { x: innerWidth / 2, y: innerHeight / 2 };
   const eased = { x: target.x, y: target.y };
   const glow = { x: target.x, y: target.y };
   const light = document.querySelector(".cursor-light");
-  const ring = document.querySelector(".cursor-ring");
   let ticking = false;
 
   function frame() {
     ticking = false;
-    const sy = window.scrollY;
     updateHeader();
+    if (reduce) return;
 
-    if (!reduce) {
-      eased.x += (target.x - eased.x) * 0.08;
-      eased.y += (target.y - eased.y) * 0.08;
-      glow.x += (target.x - glow.x) * 0.22;
-      glow.y += (target.y - glow.y) * 0.22;
+    eased.x += (target.x - eased.x) * 0.06;
+    eased.y += (target.y - eased.y) * 0.06;
+    glow.x += (target.x - glow.x) * 0.2;
+    glow.y += (target.y - glow.y) * 0.2;
+    const mx = eased.x / innerWidth - 0.5;
+    const my = eased.y / innerHeight - 0.5;
 
-      if (heroVisible) {
-        const mx = (eased.x / innerWidth - 0.5);
-        const my = (eased.y / innerHeight - 0.5);
-        heroLayers.forEach((layer) => {
-          const d = parseFloat(layer.dataset.depth);
-          layer.style.transform = (layer.classList.contains("layer--sun") || layer.classList.contains("layer--shaft"))
-            ? `translate3d(${(-mx * d * 60).toFixed(2)}px, ${(sy * d - my * d * 30).toFixed(2)}px, 0)`
-            : `translate3d(calc(-50% + ${(-mx * d * 60).toFixed(2)}px), ${(sy * d - my * d * 30).toFixed(2)}px, 0)`;
-        });
+    for (const s of scopes) {
+      if (!s.visible) continue;
+      const r = s.el.getBoundingClientRect();
+      const base = s.mode === "top" ? -r.top : (r.top + r.height / 2 - innerHeight / 2);
+      for (const { l, d, centered, mouse } of s.layers) {
+        const y = base * d - (mouse ? my * d * 26 : 0);
+        const x = mouse ? -mx * d * 50 : 0;
+        l.style.transform = centered
+          ? `translate3d(calc(-50% + ${x.toFixed(2)}px), ${y.toFixed(2)}px, 0)`
+          : `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0)`;
       }
-      if (contactVisible) {
-        const r = contact.getBoundingClientRect();
-        const offset = r.top + r.height / 2 - innerHeight / 2;
-        contactLayers.forEach((layer) => {
-          const d = parseFloat(layer.dataset.depth);
-          layer.style.transform = `translate3d(-50%, ${(offset * d).toFixed(2)}px, 0)`;
-        });
-      }
-      if (finePointer && light) {
-        light.style.transform = `translate3d(${glow.x}px, ${glow.y}px, 0)`;
-        ring.style.transform = `translate3d(${glow.x}px, ${glow.y}px, 0)`;
-      }
-      // seguir animando mientras el puntero no haya llegado a su destino
-      if (Math.abs(target.x - eased.x) > 0.3 || Math.abs(target.y - eased.y) > 0.3) request();
     }
+    if (finePointer && light) light.style.transform = `translate3d(${glow.x}px, ${glow.y}px, 0)`;
+    if (Math.abs(target.x - eased.x) > 0.3 || Math.abs(target.y - eased.y) > 0.3) request();
   }
   const request = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
 
@@ -101,12 +100,9 @@ export function initMotion() {
       spotlight(e);
     }, { passive: true });
     document.addEventListener("pointerleave", () => root.classList.remove("has-pointer"));
-    document.addEventListener("pointerover", (e) => {
-      ring?.classList.toggle("is-active", !!e.target.closest("a, button, .work, [role='button']"));
-    });
   }
 
-  /* ---------- Foco de luz dentro de tarjetas, tablillas y botones ---------- */
+  /* ---------- Luz de sol dentro de tarjetas y botones ---------- */
   function spotlight(e) {
     const host = e.target.closest?.(".work, .tablet, .btn");
     if (!host) return;

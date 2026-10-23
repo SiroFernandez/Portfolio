@@ -1,8 +1,8 @@
 /* ==================================================================
    GALERÍA · tarjetas de obra, filtros con animación FLIP y modal
    ================================================================== */
-import { FILTERS, PROJECTS, I18N } from "./content.js?v=20261023b";
-import { $, el, toRoman, prefersReducedMotion } from "./utils.js?v=20261023b";
+import { FILTERS, PROJECTS, I18N } from "./content.js?v=colina1";
+import { $, el, toRoman, prefersReducedMotion } from "./utils.js?v=colina1";
 
 const tr = (v, lang) => (v && typeof v === "object" && !Array.isArray(v) ? v[lang] : v);
 
@@ -102,7 +102,7 @@ export function createGallery({ getLang }) {
       art.append(img);
 
       const plaque = el("div", "work__plaque");
-      const num = el("p", "work__numeral", toRoman(i + 1));
+      const num = el("p", "work__numeral", String(i + 1).padStart(2, "0"));
       num.setAttribute("aria-hidden", "true");
       const title = el("h3", "work__title", c.name);
       title.id = `work-title-${p.id}`;
@@ -138,7 +138,7 @@ export function createGallery({ getLang }) {
 
     $("#modal-img").src = p.art;
     $("#modal-img").alt = c.artAlt;
-    $("#modal-numeral").textContent = `${toRoman(current + 1)} · ${t.projectsEyebrow}`;
+    $("#modal-numeral").textContent = `${String(current + 1).padStart(2, "0")} · ${t.projectsEyebrow}`;
     $("#modal-title").textContent = c.name;
     $("#modal-kind").textContent = c.kind;
     $("#modal-detail").textContent = c.detail;
@@ -146,7 +146,7 @@ export function createGallery({ getLang }) {
     const dl = $("#modal-plaque");
     dl.replaceChildren();
     [...c.plaque, [t.techLabel, p.stack.map((s) => tr(s, lang)).join(" · ")]].forEach(([k, v]) => {
-      dl.append(el("dt", null, k), el("dd", null, v));
+      dl.append(el("dt", null, k), el("dd", k === t.techLabel ? "is-code" : null, v));
     });
 
     $("#modal-highlights").replaceChildren(...c.highlights.map((h) => el("li", null, h)));
@@ -156,7 +156,7 @@ export function createGallery({ getLang }) {
 
     const links = $("#modal-links");
     links.replaceChildren(...p.links.map((l) => {
-      const a = el("a", "btn btn--primary", tr(l.label, lang));
+      const a = el("a", "btn btn--terra", tr(l.label, lang));
       a.href = l.url; a.target = "_blank"; a.rel = "noopener";
       a.append(el("span", "sr-only", ` ${t.newTab}`));
       return a;

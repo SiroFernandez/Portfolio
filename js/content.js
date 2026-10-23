@@ -44,7 +44,7 @@ export const FILTERS = [
 export const PROJECTS = [
   {
     id: "match4all",
-    art: "assets/works/match4all.svg?v=20261023b",
+    art: "assets/works/match4all.svg?v=colina1",
     featured: true,
     filters: ["java", "spring", "web", "realtime"],
     stack: ["Java", "Spring Boot", "WebSockets", "HTML", "Maven"],
@@ -78,7 +78,7 @@ export const PROJECTS = [
   },
   {
     id: "ecosistema",
-    art: "assets/works/ecosistema.svg?v=20261023b",
+    art: "assets/works/ecosistema.svg?v=colina1",
     filters: ["java", "desktop"],
     stack: ["Java", "Swing", "JSON", { es: "Hilos", en: "Threads" }, "MVC", { es: "Patrones de diseño", en: "Design patterns" }],
     links: [],
@@ -111,7 +111,7 @@ export const PROJECTS = [
   },
   {
     id: "torneos",
-    art: "assets/works/torneos.svg?v=20261023b",
+    art: "assets/works/torneos.svg?v=colina1",
     filters: ["php", "js", "web", "realtime"],
     stack: ["PHP", "JavaScript"],
     links: [],
@@ -144,7 +144,7 @@ export const PROJECTS = [
   },
   {
     id: "alimentacion",
-    art: "assets/works/alimentacion.svg?v=20261023b",
+    art: "assets/works/alimentacion.svg?v=colina1",
     featured: true,
     filters: ["ux"],
     stack: [{ es: "Entrevistas a usuarios", en: "User interviews" }, { es: "Prototipado", en: "Prototyping" }],
@@ -190,13 +190,13 @@ export const I18N = {
     navContact: "Contacto",
     heroEyebrow: "Portfolio",
     heroRole: "Ingeniería Informática · Universidad Complutense de Madrid",
-    heroLead: "Estudiante de Ingeniería Informática en la Universidad Complutense de Madrid. Desarrollo software y me interesan la ciberseguridad y las apps móviles.",
+    heroLead: "Estudiante de Ingeniería Informática en la Universidad Complutense de Madrid. Desarrollo software y me interesan la ciberseguridad y las apps móviles. Busco prácticas o un contrato a tiempo parcial.",
     ctaProjects: "Ver proyectos",
     ctaContact: "Contacto",
     scroll: "Desplázate",
     facts: [["4", "proyectos expuestos"], ["8", "lenguajes de programación"], ["4", "idiomas"], ["2022", "inicio del grado"]],
 
-    projectsEyebrow: "La galería",
+    projectsEyebrow: "Trabajo seleccionado",
     projectsTitle: "Proyectos",
     projectsIntro: "Proyectos de asignaturas distintas, de la arquitectura de software al diseño con usuarios. Abre cualquiera para ver su ficha completa.",
     filterLabel: "Filtrar por",
@@ -204,7 +204,7 @@ export const I18N = {
     filterCount: (n) => n === 1 ? "1 proyecto" : `${n} proyectos`,
     viewWork: "Ver proyecto",
     stackLabel: "Tecnologías y métodos",
-    techLabel: "Técnica",
+    techLabel: "Stack",
     highlightsLabel: "Claves del proyecto",
     prevWork: "Proyecto anterior",
     nextWork: "Proyecto siguiente",
@@ -212,7 +212,7 @@ export const I18N = {
     of: "de",
     newTab: "(se abre en una pestaña nueva)",
 
-    skillsEyebrow: "El taller",
+    skillsEyebrow: "Stack y método",
     skillsTitle: "Habilidades",
     skillsIntro: "Rigor de ingeniería y sensibilidad de diseño: las dos mitades con las que trabajo, y dónde las he aplicado.",
     balance: [
@@ -247,7 +247,7 @@ export const I18N = {
     langs: [["Español", "nativo", 4], ["Inglés", "avanzado", 3], ["Portugués", "medio-bajo", 2], ["Alemán", "básico", 1]],
     levelOf: "nivel",
 
-    aboutEyebrow: "El autor",
+    aboutEyebrow: "Perfil",
     aboutTitle: "Sobre mí",
     aboutQuote: "Creo que la tecnología debe desarrollarse con criterio ético y responsable.",
     aboutText: "Combino una base técnica sólida con interés por el desarrollo de software y la gestión de proyectos de TI. Me motiva resolver problemas de forma creativa y creo que la tecnología debe desarrollarse con criterio ético y responsable. Trabajo con metodologías ágiles (Scrum) y me adapto rápido a entornos que cambian.",
@@ -262,9 +262,9 @@ export const I18N = {
     eduSpec: "Especialidad: Tecnologías de la Información.",
     eduKey: "Competencias clave: ciberseguridad, auditoría de sistemas, redes y sistemas operativos.",
 
-    contactEyebrow: "Correspondencia",
+    contactEyebrow: "Hablemos",
     contactTitle: "Contacto",
-    contactText: "Si quieres comentar alguno de mis proyectos, escríbeme.",
+    contactText: "Si tienes una oportunidad de prácticas o quieres comentar alguno de mis proyectos, escríbeme.",
     copyBtn: "Copiar email",
     copied: "Email copiado al portapapeles.",
     footer: "© 2026 Siro Fernández García",
@@ -287,7 +287,7 @@ export const I18N = {
     scroll: "Scroll",
     facts: [["4", "projects on show"], ["8", "programming languages"], ["4", "spoken languages"], ["2022", "degree started"]],
 
-    projectsEyebrow: "The gallery",
+    projectsEyebrow: "Selected work",
     projectsTitle: "Projects",
     projectsIntro: "Projects from different courses, from software architecture to designing with users. Open any of them to see the full record.",
     filterLabel: "Filter by",
@@ -295,7 +295,7 @@ export const I18N = {
     filterCount: (n) => n === 1 ? "1 project" : `${n} projects`,
     viewWork: "View project",
     stackLabel: "Technologies and methods",
-    techLabel: "Medium",
+    techLabel: "Stack",
     highlightsLabel: "Key points",
     prevWork: "Previous project",
     nextWork: "Next project",
@@ -303,7 +303,7 @@ export const I18N = {
     of: "of",
     newTab: "(opens in a new tab)",
 
-    skillsEyebrow: "The workshop",
+    skillsEyebrow: "Stack & method",
     skillsTitle: "Skills",
     skillsIntro: "Engineering rigour and a feel for design: the two halves I work with, and where I have used them.",
     balance: [
@@ -338,7 +338,7 @@ export const I18N = {
     langs: [["Spanish", "native", 4], ["English", "advanced", 3], ["Portuguese", "lower-intermediate", 2], ["German", "basic", 1]],
     levelOf: "level",
 
-    aboutEyebrow: "The author",
+    aboutEyebrow: "Profile",
     aboutTitle: "About me",
     aboutQuote: "I believe technology should be built with ethics and responsibility in mind.",
     aboutText: "I combine a solid technical foundation with an interest in software development and IT project management. I enjoy solving problems creatively, and I believe technology should be built with ethics and responsibility in mind. I work with agile methodologies (Scrum) and adapt quickly to changing environments.",
@@ -353,7 +353,7 @@ export const I18N = {
     eduSpec: "Specialisation: Information Technologies.",
     eduKey: "Key skills: cybersecurity, systems auditing, networks and operating systems.",
 
-    contactEyebrow: "Correspondence",
+    contactEyebrow: "Let’s talk",
     contactTitle: "Contact",
     contactText: "If you have an internship opportunity or want to talk about any of my projects, get in touch.",
     copyBtn: "Copy email",

@@ -3,10 +3,10 @@
    (no hace falta tocar este archivo para cambiar contenido:
     todo está en js/content.js)
    ================================================================== */
-import { CONFIG, I18N } from "./content.js?v=20261023b";
-import { createGallery } from "./gallery.js?v=20261023b";
-import { initMotion } from "./motion.js?v=20261023b";
-import { $, el, toRoman } from "./utils.js?v=20261023b";
+import { CONFIG, I18N } from "./content.js?v=colina1";
+import { createGallery } from "./gallery.js?v=colina1";
+import { initMotion } from "./motion.js?v=colina1";
+import { $, el, toRoman } from "./utils.js?v=colina1";
 
 
 /* ---------- Idioma ---------- */
@@ -34,7 +34,7 @@ function renderBalance(t) {
   wrap.replaceChildren(...t.balance.map((side, i) => {
     const art = el("article", "balance__side");
     const h = el("h3", "balance__title", side.title);
-    const small = el("small", null, toRoman(i + 1));
+    const small = el("small", null, String(i + 1).padStart(2, "0"));
     small.setAttribute("aria-hidden", "true");
     h.append(small);
     const ul = el("ul", "balance__list");
@@ -54,7 +54,7 @@ function renderTablets(t) {
   ul.replaceChildren(...t.skills.map(([title, body], i) => {
     const li = el("li", "tablet reveal");
     li.style.setProperty("--reveal-delay", `${(i % 3) * 90}ms`);
-    const num = el("span", "tablet__numeral", toRoman(i + 1));
+    const num = el("span", "tablet__numeral", String(i + 1).padStart(2, "0"));
     num.setAttribute("aria-hidden", "true");
     li.append(num, el("h3", "tablet__title", title), el("p", "tablet__body", body));
     return li;

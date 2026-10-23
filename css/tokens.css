@@ -1,55 +1,54 @@
 /* ==================================================================
-   TOKENS DE DISEÑO · "Chiaroscuro"
-   Barroco italiano histórico: claroscuro en la portada y el contacto,
-   papel de grabado envejecido en las salas interiores.
+   TOKENS DE DISEÑO · "Colina"
+   Paisaje liminal y sereno: colinas aterciopeladas, cúmulos
+   monumentales, cielo cerúleo y una casa con tejado de teja.
    Contrastes verificados (WCAG 2.2) en los comentarios.
    ================================================================== */
 :root {
-  /* --- Penumbra (superficies oscuras: portada, contacto, pie, modal) --- */
-  --umber-900:   #17100B;  /* sombra más profunda, pie */
-  --umber-800:   #22170F;  /* fondo de portada y contacto */
-  --umber-700:   #33241A;  /* superficies elevadas sobre oscuro */
-  --candle:      #EFE3C8;  /* texto sobre oscuro: 13.8:1 sobre umber-800 */
-  --candle-soft: #BFA98A;  /* texto secundario sobre oscuro: 7.7:1 */
+  /* --- Cielo --- */
+  --sky:        #2B6F96;  /* cerúleo: portada y contacto; blanco encima 5.5:1 */
+  --sky-deep:   #1E5B7E;  /* cénit, cabecera del cielo; blanco encima 7.4:1 */
+  --sky-low:    #4A8DB0;  /* cerca del horizonte (solo fondo) */
+  --cloud:      #FFFFFF;  /* blanco de nube: texto sobre cielo */
+  --cloud-shade:#A9B9C8;  /* sombra gris azulada de la nube (decorativa) */
 
-  /* --- Papel (salas interiores) --- */
-  --paper:       #EFE6D2;  /* fondo de página, papel de grabado */
-  --paper-light: #F7F1E3;  /* tarjetas y cartelas */
-  --paper-deep:  #E2D5BA;  /* bandas (taller) */
+  /* --- Colinas --- */
+  --pistachio:  #A8B868;  /* prado claro: fondo de Proyectos; ink encima 7.3:1 */
+  --pistachio-lit: #C4D07D; /* cresta iluminada (decorativa) */
+  --moss:       #7D9344;  /* ladera: fondo de Habilidades; ink encima 4.6:1 */
+  --olive:      #4F6326;  /* valle en sombra: Sobre mí; cream encima 6.0:1 */
+  --olive-deep: #3C4E1E;  /* sombra más profunda, pie */
 
-  /* --- Tinta --- */
-  --ink:         #24190F;  /* texto principal: 13.9:1 sobre paper */
-  --sepia:       #5C4330;  /* texto secundario: 7.4:1 sobre paper, 6.3:1 sobre paper-deep */
+  /* --- Casa --- */
+  --terracotta: #C84B31;  /* teja: punto focal y decoración */
+  --terra-btn:  #A93C24;  /* botón principal: blanco encima 5.9:1 */
+  --terra-dark: #8E3220;  /* hover del botón y enlaces sobre crema: 6.9:1 */
+  --wall:       #FBFAF4;  /* blanco de fachada */
 
-  /* --- Acentos --- */
-  --carmine:     #8E2A1F;  /* carmín: enlaces, numerales, foco: 6.8:1 sobre paper */
-  --oxblood:     #5E1A14;  /* sangre de buey: estados activos, terciopelo: 10.4:1 */
-  --gold:        #A9823A;  /* oro viejo: molduras y ornamento sobre papel (no texto) */
-  --gold-bright: #C9A45C;  /* oro iluminado: texto y botones sobre oscuro: 7.5:1 */
-  --gold-pale:   #E6CB8E;  /* destello dorado */
-  --gold-text:   #7A5A22;  /* oro para texto sobre paper: 5.1:1 */
-  --verdigris:   #4E6B5E;  /* pátina de bronce: estados: 4.7:1 sobre paper */
-
-  /* --- Líneas --- */
-  --line:        rgba(46, 32, 21, .22);
-  --line-strong: #8A6E4B;  /* bordes de controles: 3.8:1 sobre paper */
-  --line-dark:   rgba(201, 164, 92, .35); /* filete dorado sobre oscuro */
+  /* --- Tinta y superficies --- */
+  --ink:        #1B2610;  /* texto principal: 14.2:1 sobre cream, 7.3:1 sobre pistachio */
+  --ink-soft:   #3E4E22;  /* texto secundario: 8.2:1 sobre cream */
+  --cream:      #F6F3E8;  /* texto sobre olivo y fondo de vidrio */
+  --glass:       rgba(246, 243, 232, .68);  /* vidrio mate orgánico */
+  --glass-strong:rgba(246, 243, 232, .88);
+  --glass-edge:  rgba(255, 255, 255, .62);
+  --line:        rgba(27, 38, 16, .16);
+  --line-strong: #6B7C3C;  /* bordes de controles sobre crema: 4.2:1 */
 
   /* --- Tipografía --- */
-  --font-display: "IM Fell English", "Garamond", Georgia, serif;   /* titulares: imprenta del s. XVII */
-  --font-caps:    "IM Fell English SC", "IM Fell English", Georgia, serif; /* versalitas de cartela */
-  --font-sans:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; /* datos y cuerpo */
+  --font-display: "Cormorant Garamond", "Garamond", Georgia, serif;  /* titulares finos y aireados */
+  --font-sans:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:    ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace; /* stack técnico */
 
   --text-xs:   .8rem;
-  --text-sm:   .9rem;
+  --text-sm:   .92rem;
   --text-base: 1.0625rem;
   --text-lg:   1.25rem;
-  --text-xl:   clamp(1.7rem, 1.3rem + 1.4vw, 2.3rem);
-  --text-2xl:  clamp(2.6rem, 1.7rem + 3.4vw, 4.6rem);
-  --text-hero: clamp(3.2rem, 1.2rem + 7vw, 7.6rem);
-  --tracking-caps: .14em;
+  --text-xl:   clamp(1.8rem, 1.3rem + 1.6vw, 2.5rem);
+  --text-2xl:  clamp(2.8rem, 1.8rem + 3.8vw, 5.2rem);
+  --text-hero: clamp(3.4rem, 1.4rem + 7vw, 8rem);
 
-  /* --- Espaciado (escala de 8) --- */
+  /* --- Espaciado (escala de 8, con aire generoso) --- */
   --space-1: .25rem;
   --space-2: .5rem;
   --space-3: .75rem;
@@ -57,30 +56,29 @@
   --space-5: 1.5rem;
   --space-6: 2rem;
   --space-7: 3rem;
-  --space-8: 4.5rem;
-  --space-9: 7rem;
-  --gutter: clamp(1rem, .4rem + 3vw, 3rem);
-  --maxw: 76rem;
+  --space-8: 5rem;
+  --space-9: 8rem;
+  --gutter: clamp(1.25rem, .5rem + 3vw, 3.5rem);
+  --maxw: 74rem;
 
-  /* --- Radios: piedra y madera tallada, casi rectos --- */
-  --radius-sm: 1px;
-  --radius-md: 3px;
-  --radius-lg: 6px;
+  /* --- Formas orgánicas --- */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+  --radius-hill: 28px 28px 50% 50% / 28px 28px 14% 14%; /* borde inferior como una loma */
 
-  /* --- Sombras: luz lateral de vela, cálida y profunda --- */
-  --shadow-rest:  0 1px 2px rgba(36, 25, 15, .12), 0 10px 24px -14px rgba(36, 25, 15, .35);
-  --shadow-lift:  -6px 18px 40px -18px rgba(36, 22, 10, .55), 0 2px 6px rgba(36, 25, 15, .15);
-  --shadow-modal: 0 40px 120px -20px rgba(0, 0, 0, .7);
-  --shadow-relief: inset 0 1px 0 rgba(255, 250, 235, .6), inset 0 -1px 0 rgba(46, 32, 21, .25);
+  /* --- Sombras: luz natural difusa, tintada de verde y cielo --- */
+  --shadow-rest:  0 1px 2px rgba(30, 45, 15, .08), 0 14px 34px -18px rgba(30, 45, 15, .35);
+  --shadow-lift:  0 4px 10px rgba(30, 45, 15, .08), 0 34px 60px -26px rgba(30, 45, 15, .5);
+  --shadow-modal: 0 50px 120px -30px rgba(12, 30, 45, .55);
+  --shadow-glass: inset 0 1px 0 rgba(255, 255, 255, .7), 0 18px 40px -24px rgba(30, 45, 15, .4);
 
-  /* --- Dorado de marco --- */
-  --gilt: linear-gradient(135deg, #6B4A1C 0%, #C9A45C 18%, #8A6526 34%, #E6CB8E 50%, #9A7330 66%, #C9A45C 82%, #5E4116 100%);
-
-  /* --- Movimiento: solemne, sin rebotes --- */
-  --ease-silk:   cubic-bezier(.22, .61, .36, 1);
+  /* --- Movimiento: tranquilo --- */
+  --ease-calm:   cubic-bezier(.22, .61, .36, 1);
   --ease-breath: cubic-bezier(.45, 0, .2, 1);
-  --dur-fast: 180ms;
-  --dur-base: 420ms;
-  --dur-slow: 900ms;
-  --blur-glass: 12px;
+  --dur-fast: 200ms;
+  --dur-base: 500ms;
+  --dur-slow: 1000ms;
+  --blur-glass: 18px;
 }

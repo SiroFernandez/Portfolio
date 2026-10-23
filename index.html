@@ -5,40 +5,60 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Siro Fernández García · Portfolio</title>
 <meta name="description" content="Portfolio de Siro Fernández García, estudiante de Ingeniería Informática en la Universidad Complutense de Madrid: proyectos de desarrollo web, software y diseño de interfaces.">
-<meta name="theme-color" content="#22170F">
+<meta name="theme-color" content="#2B6F96">
 <meta name="color-scheme" content="light">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Siro Fernández García · Portfolio">
 <meta property="og:description" content="Ingeniería Informática (UCM) · Desarrollo web, software y diseño de interfaces.">
 <meta property="og:url" content="https://sirofernandez.github.io/Portfolio/">
-<link rel="icon" href="favicon.svg?v=20261023b" type="image/svg+xml">
+<link rel="icon" href="favicon.svg?v=colina1" type="image/svg+xml">
 
-<link rel="preload" href="assets/img/sky.webp?v=20261023b" as="image" type="image/webp">
-<link rel="preload" href="fonts/im-fell-english-latin-400-normal.woff2?v=20261023b" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/inter-latin-400-normal.woff2?v=20261023b" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/im-fell-english-sc-latin-400-normal.woff2?v=20261023b" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/img/sky.webp?v=colina1" as="image" type="image/webp">
+<link rel="preload" href="assets/img/cumulus.webp?v=colina1" as="image" type="image/webp">
+<link rel="preload" href="fonts/cormorant-garamond-latin-300-normal.woff2?v=colina1" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin-400-normal.woff2?v=colina1" as="font" type="font/woff2" crossorigin>
 
-<link rel="stylesheet" href="css/fonts.css?v=20261023b">
-<link rel="stylesheet" href="css/tokens.css?v=20261023b">
-<link rel="stylesheet" href="css/base.css?v=20261023b">
-<link rel="stylesheet" href="css/components.css?v=20261023b">
-<link rel="stylesheet" href="css/sections.css?v=20261023b">
+<link rel="stylesheet" href="css/fonts.css?v=colina1">
+<link rel="stylesheet" href="css/tokens.css?v=colina1">
+<link rel="stylesheet" href="css/base.css?v=colina1">
+<link rel="stylesheet" href="css/components.css?v=colina1">
+<link rel="stylesheet" href="css/sections.css?v=colina1">
 
 <script>document.documentElement.classList.add("js");</script>
-<script type="module" src="js/app.js?v=20261023b"></script>
+<script type="module" src="js/app.js?v=colina1"></script>
 </head>
 <body>
 <a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido</a>
 
-<!-- Luz que sigue al puntero (decorativa) -->
+<!-- Luz de sol que sigue al puntero (decorativa) -->
 <div class="cursor-light" aria-hidden="true"></div>
-<div class="cursor-ring" aria-hidden="true"></div>
+
+<!-- La casa: un único dibujo reutilizado en la portada y en el contacto -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="house" viewBox="0 0 120 70">
+      <ellipse cx="66" cy="66" rx="58" ry="5" fill="#2E3B14" opacity=".28"/>
+      <path d="M78 30 L112 30 L112 64 L78 64 Z" fill="#A9C3D2"/>
+      <path d="M78 30 L112 30 L112 34 L78 34 Z" fill="#7E9DB0"/>
+      <path d="M10 34 L44 12 L78 34 L78 64 L10 64 Z" fill="#FBFAF4"/>
+      <path d="M44 12 L78 34 L78 64 L62 64 L62 40 Z" fill="#E9E8DF" opacity=".6"/>
+      <path d="M4 36 L44 9 L84 36 L80 38 L44 15 L8 38 Z" fill="#C84B31"/>
+      <path d="M44 9 L84 36 L116 31 L74 6 Z" fill="#C84B31"/>
+      <path d="M44 9 L74 6 L116 31 L112 33 L72 10 Z" fill="#9E3822" opacity=".55"/>
+      <rect x="22" y="44" width="9" height="20" fill="#9E3822"/>
+      <rect x="50" y="44" width="10" height="9" style="fill:var(--window,#5B7585)"/>
+      <rect x="86" y="42" width="8" height="8" fill="#5B7585"/>
+      <rect x="99" y="42" width="8" height="8" fill="#5B7585"/>
+    </symbol>
+  </defs>
+</svg>
 
 <!-- ============ CABECERA ============ -->
 <header class="site-header" id="top">
   <div class="site-header__inner">
-    <a class="monogram" href="#main" aria-label="Siro Fernández García, inicio">
-      <svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20.5"/><circle class="inner" cx="22" cy="22" r="17"/><text x="22" y="27.5" text-anchor="middle">SF</text></svg>
+    <a class="brand" href="#main" aria-label="Siro Fernández García, inicio">
+      <svg class="brand__house" viewBox="0 0 120 70" aria-hidden="true"><use href="#house"/></svg>
+      <span class="brand__name">Siro Fernández</span>
     </a>
 
     <nav class="nav" id="site-nav" aria-label="Principal">
@@ -65,51 +85,52 @@
 
 <main id="main" tabindex="-1">
 
-  <!-- ============ HERO ============ -->
-  <section class="hero" aria-labelledby="hero-title">
+  <!-- ============ PORTADA: cielo, cúmulo, colinas y la casa ============ -->
+  <section class="hero" aria-labelledby="hero-title" data-parallax="top">
     <div class="hero__scene" aria-hidden="true">
-      <img class="layer layer--sky" src="assets/img/sky.webp?v=20261023b" alt="" width="2400" height="1500" data-depth="0.08" fetchpriority="high">
-      <div class="layer layer--sun" data-depth="0.12"></div>
-      <div class="layer layer--shaft" data-depth="0.1"></div>
-      <img class="layer layer--clouds-far" src="assets/img/clouds-far.webp?v=20261023b" alt="" width="2400" height="800" data-depth="0.22">
-      <img class="layer layer--clouds-mid" src="assets/img/clouds-mid.webp?v=20261023b" alt="" width="2400" height="900" data-depth="0.36">
-      <img class="layer layer--horizon" src="assets/img/horizon.webp?v=20261023b" alt="" width="2400" height="600" data-depth="0.5">
-      <img class="layer layer--mist" src="assets/img/mist-near.webp?v=20261023b" alt="" width="2400" height="600" data-depth="0.68">
+      <img class="layer layer--sky is-centered" src="assets/img/sky.webp?v=colina1" alt="" width="2400" height="1600" data-depth="0.05" fetchpriority="high">
+      <img class="layer layer--cloud-far is-centered" src="assets/img/cumulus-far.webp?v=colina1" alt="" width="2400" height="700" data-depth="0.14">
+      <img class="layer layer--cloud" src="assets/img/cumulus.webp?v=colina1" alt="" width="2000" height="1400" data-depth="0.22" data-mouse="1">
+      <div class="layer layer--hills-far is-centered" data-depth="0.34" data-mouse="1">
+        <img src="assets/img/hills-far.webp?v=colina1" alt="" width="2400" height="520">
+        <svg class="hero__house" viewBox="0 0 120 70"><use href="#house"/></svg>
+      </div>
+      <img class="layer layer--hills-mid is-centered" src="assets/img/hills-mid.webp?v=colina1" alt="" width="2400" height="680" data-depth="0.48" data-mouse="1">
+      <img class="layer layer--hills-near is-centered" src="assets/img/hills-near.webp?v=colina1" alt="" width="2400" height="820" data-depth="0.62" data-mouse="1">
+      <div class="cloud-shadows"></div>
     </div>
 
     <div class="hero__content">
-      <p class="eyebrow hero__eyebrow"><span data-i18n="heroEyebrow">Portfolio</span> <span aria-hidden="true">· Madrid · MMXXVI</span></p>
+      <p class="eyebrow hero__eyebrow"><span data-i18n="heroEyebrow">Portfolio</span> <span aria-hidden="true">· Madrid · 2026</span></p>
       <h1 id="hero-title" class="hero__title">
         <span class="hero__line">Siro</span>
         <span class="hero__line">Fernández García</span>
       </h1>
       <p class="hero__role" data-i18n="heroRole">Ingeniería Informática · Universidad Complutense de Madrid</p>
+    </div>
+
+    <div class="hero__panel glass">
       <p class="hero__lead" data-i18n="heroLead"></p>
       <div class="hero__actions">
-        <a class="btn btn--gold" href="#proyectos" data-i18n="ctaProjects">Ver proyectos</a>
-        <a class="btn btn--ghost" href="#contacto" data-i18n="ctaContact">Contacto</a>
+        <a class="btn btn--terra" href="#proyectos" data-i18n="ctaProjects">Ver proyectos</a>
+        <a class="btn btn--glass" href="#contacto" data-i18n="ctaContact">Contacto</a>
       </div>
       <ul class="hero__facts" id="hero-facts"></ul>
     </div>
-
-    <a class="scroll-cue" href="#proyectos">
-      <span data-i18n="scroll">Desplázate</span>
-      <span class="scroll-cue__line" aria-hidden="true"></span>
-    </a>
   </section>
 
-  <!-- ============ I · GALERÍA DE PROYECTOS ============ -->
-  <section class="section gallery" id="proyectos" aria-labelledby="h-proyectos">
+  <!-- ============ 01 · PROYECTOS (el prado claro) ============ -->
+  <section class="section field field--pistachio gallery" id="proyectos" aria-labelledby="h-proyectos" data-parallax="center">
+    <div class="cloud-shadows" aria-hidden="true"></div>
     <div class="container">
       <header class="section-head reveal">
-        <p class="eyebrow"><span class="numeral" aria-hidden="true">I</span> <span data-i18n="projectsEyebrow">La galería</span></p>
+        <p class="eyebrow"><span class="eyebrow__num" aria-hidden="true">01</span> <span data-i18n="projectsEyebrow">Trabajo seleccionado</span></p>
         <h2 id="h-proyectos" data-i18n="projectsTitle">Proyectos</h2>
         <p class="section-head__intro" data-i18n="projectsIntro"></p>
       </header>
 
-      <div class="filters reveal" id="filters" role="toolbar" aria-labelledby="filters-label">
+      <div class="filters glass reveal" id="filters" role="toolbar" aria-labelledby="filters-label">
         <span class="filters__label" id="filters-label" data-i18n="filterLabel">Filtrar por</span>
-        <!-- Los grupos de filtros se generan desde js/content.js -->
       </div>
       <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
 
@@ -117,31 +138,39 @@
     </div>
   </section>
 
-  <!-- ============ II · TALLER (STACK Y HABILIDADES) ============ -->
-  <section class="section section--cornice atelier" id="taller" aria-labelledby="h-taller">
+  <!-- ============ 02 · HABILIDADES (la ladera de musgo) ============ -->
+  <section class="section field field--moss atelier" id="taller" aria-labelledby="h-taller" data-parallax="center">
+    <div class="crest" aria-hidden="true">
+      <svg class="crest__back" data-depth="-0.06" viewBox="0 0 1440 160" preserveAspectRatio="none"><path d="M0 120 C180 60 380 50 560 86 C760 126 920 40 1120 46 C1260 50 1360 86 1440 96L1440 420 L0 420Z"/></svg>
+      <svg class="crest__front" viewBox="0 0 1440 160" preserveAspectRatio="none"><path d="M0 104 C220 140 420 70 640 82 C860 94 1000 150 1200 128 C1320 114 1400 96 1440 92L1440 420 L0 420Z"/></svg>
+    </div>
+    <div class="cloud-shadows" aria-hidden="true"></div>
     <div class="container">
       <header class="section-head reveal">
-        <p class="eyebrow"><span class="numeral" aria-hidden="true">II</span> <span data-i18n="skillsEyebrow">El taller</span></p>
+        <p class="eyebrow"><span class="eyebrow__num" aria-hidden="true">02</span> <span data-i18n="skillsEyebrow">Stack y método</span></p>
         <h2 id="h-taller" data-i18n="skillsTitle">Habilidades</h2>
         <p class="section-head__intro" data-i18n="skillsIntro"></p>
       </header>
 
       <div class="balance reveal" id="balance"></div>
-
       <ul class="tablets" id="tablets"></ul>
 
-      <div class="tongues reveal">
+      <div class="tongues glass reveal">
         <h3 class="tongues__title" data-i18n="langsTitle">Idiomas</h3>
         <ul class="tongues__list" id="langs"></ul>
       </div>
     </div>
   </section>
 
-  <!-- ============ III · SOBRE MÍ ============ -->
-  <section class="section section--cornice about" id="sobre-mi" aria-labelledby="h-sobre">
+  <!-- ============ 03 · SOBRE MÍ (el valle en sombra) ============ -->
+  <section class="section field field--olive about" id="sobre-mi" aria-labelledby="h-sobre" data-parallax="center">
+    <div class="crest" aria-hidden="true">
+      <svg class="crest__back" data-depth="-0.06" viewBox="0 0 1440 160" preserveAspectRatio="none"><path d="M0 70 C200 40 340 100 540 110 C760 120 900 50 1100 60 C1280 70 1380 110 1440 120L1440 420 L0 420Z"/></svg>
+      <svg class="crest__front" viewBox="0 0 1440 160" preserveAspectRatio="none"><path d="M0 120 C160 96 300 80 480 96 C700 116 860 140 1060 120 C1240 102 1360 80 1440 76L1440 420 L0 420Z"/></svg>
+    </div>
     <div class="container about__grid">
       <header class="section-head reveal">
-        <p class="eyebrow"><span class="numeral" aria-hidden="true">III</span> <span data-i18n="aboutEyebrow">El autor</span></p>
+        <p class="eyebrow"><span class="eyebrow__num" aria-hidden="true">03</span> <span data-i18n="aboutEyebrow">Perfil</span></p>
         <h2 id="h-sobre" data-i18n="aboutTitle">Sobre mí</h2>
       </header>
 
@@ -154,7 +183,7 @@
         <ul class="principles" id="principles"></ul>
       </div>
 
-      <aside class="edu reveal" aria-labelledby="h-edu">
+      <aside class="edu glass reveal" aria-labelledby="h-edu">
         <h3 id="h-edu" class="edu__label" data-i18n="eduLabel">Formación</h3>
         <p class="edu__degree" data-i18n="degree"></p>
         <p class="edu__uni" data-i18n="uni"></p>
@@ -164,21 +193,25 @@
     </div>
   </section>
 
-  <!-- ============ IV · CONTACTO ============ -->
-  <section class="section contact" id="contacto" aria-labelledby="h-contact">
-    <div class="contact__sky" aria-hidden="true">
-      <img class="contact__clouds" src="assets/img/clouds-far.webp?v=20261023b" alt="" width="2400" height="800" loading="lazy" data-depth="0.12">
-      <img class="contact__mist" src="assets/img/mist-near.webp?v=20261023b" alt="" width="2400" height="600" loading="lazy" data-depth="0.22">
+  <!-- ============ 04 · CONTACTO (de vuelta al cielo, con la casa) ============ -->
+  <section class="section contact" id="contacto" aria-labelledby="h-contact" data-parallax="center">
+    <div class="contact__scene" aria-hidden="true">
+      <img class="contact__cloud" src="assets/img/cumulus.webp?v=colina1" alt="" width="2000" height="1400" loading="lazy" data-depth="0.12">
+      <div class="contact__hill" data-depth="-0.05">
+        <img src="assets/img/hills-far.webp?v=colina1" alt="" width="2400" height="520" loading="lazy">
+        <svg class="contact__house" viewBox="0 0 120 70"><use href="#house"/></svg>
+      </div>
+      <img class="contact__near" src="assets/img/hills-near.webp?v=colina1" alt="" width="2400" height="820" loading="lazy" data-depth="-0.1">
     </div>
     <div class="container contact__inner reveal">
-      <p class="eyebrow"><span class="numeral" aria-hidden="true">IV</span> <span data-i18n="contactEyebrow">Correspondencia</span></p>
+      <p class="eyebrow"><span class="eyebrow__num" aria-hidden="true">04</span> <span data-i18n="contactEyebrow">Hablemos</span></p>
       <h2 id="h-contact" class="contact__title" data-i18n="contactTitle">Contacto</h2>
       <p class="contact__text" data-i18n="contactText"></p>
       <p class="contact__email"><a id="email-link" href="#"></a></p>
       <div class="contact__actions">
-        <button type="button" class="btn btn--gold" id="btn-copy" data-i18n="copyBtn">Copiar email</button>
-        <a class="btn btn--ghost" id="link-linkedin" href="#" target="_blank" rel="noopener">LinkedIn <span class="sr-only" data-i18n="newTab"></span></a>
-        <a class="btn btn--ghost" id="link-github" href="#" target="_blank" rel="noopener" hidden>GitHub <span class="sr-only" data-i18n="newTab"></span></a>
+        <button type="button" class="btn btn--terra" id="btn-copy" data-i18n="copyBtn">Copiar email</button>
+        <a class="btn btn--glass" id="link-linkedin" href="#" target="_blank" rel="noopener">LinkedIn <span class="sr-only" data-i18n="newTab"></span></a>
+        <a class="btn btn--glass" id="link-github" href="#" target="_blank" rel="noopener" hidden>GitHub <span class="sr-only" data-i18n="newTab"></span></a>
       </div>
       <p class="contact__status" id="copy-status" role="status" aria-live="polite"></p>
     </div>
