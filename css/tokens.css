@@ -1,0 +1,79 @@
+/* ==================================================================
+   TOKENS DE DISEÑO · "Sfumato"
+   Paleta de óleo cálido, tipografía editorial y movimiento sereno.
+   Contrastes verificados (WCAG 2.2): ver comentarios.
+   ================================================================== */
+:root {
+  /* --- Superficies (fondos) --- */
+  --ivory:        #FDFBF7;  /* tarjetas, modal, passe-partout */
+  --bone:         #F4EFEA;  /* fondo de página */
+  --parchment:    #EAE1D3;  /* bandas y secciones alternas */
+  --clay:         #D9C7AE;  /* beige arcilla: decoración, separadores */
+  --glass:        rgba(250, 246, 239, .62); /* vidrio mate sobre cielo */
+  --glass-strong: rgba(250, 246, 239, .86);
+
+  /* --- Tinta (texto) --- */
+  --ink:          #2A211A;  /* 13.8:1 sobre bone */
+  --ink-soft:     #5E5044;  /* 6.8:1 sobre bone · texto secundario */
+
+  /* --- Acentos --- */
+  --sienna:       #9A4A26;  /* siena tostada · enlaces, foco: 5.4:1 sobre bone */
+  --sienna-light: #B5612F;  /* solo decoración */
+  --sage:         #7D8B6F;  /* verde salvia · decoración */
+  --sage-deep:    #4F5D45;  /* salvia para texto: 6.2:1 sobre bone */
+  --gold:         #B8955A;  /* oro suave · marcos y filetes (no texto) */
+  --gold-pale:    #E3CFA4;  /* brillo dorado */
+  --bronze:       #6E5428;  /* bronce viejo · texto sobre marfil: 6.9:1 */
+
+  /* --- Líneas --- */
+  --line:         rgba(110, 84, 40, .18); /* filete fino decorativo */
+  --line-strong:  #8F7752;  /* bordes de controles: 4.1:1 sobre ivory, 3.7:1 sobre bone */
+
+  /* --- Tipografía --- */
+  --font-display: "Cinzel", "Trajan Pro", Georgia, serif;          /* monumental, solo mayúsculas */
+  --font-serif:   "Cormorant Garamond", "Garamond", Georgia, serif; /* titulares editoriales */
+  --font-sans:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; /* cuerpo y datos */
+
+  --text-xs:   .78rem;   /* etiquetas en versalitas */
+  --text-sm:   .9rem;
+  --text-base: 1.0625rem;
+  --text-lg:   1.25rem;
+  --text-xl:   clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem);   /* títulos de tarjeta */
+  --text-2xl:  clamp(2.4rem, 1.6rem + 3vw, 4rem);       /* h2 */
+  --text-hero: clamp(2.7rem, 1rem + 6.4vw, 6.6rem);     /* nombre */
+  --tracking-display: .12em;
+  --tracking-eyebrow: .28em;
+
+  /* --- Espaciado (escala de 8) --- */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 7rem;
+  --gutter: clamp(1rem, .4rem + 3vw, 3rem);
+  --maxw: 76rem;
+
+  /* --- Radios: piedra tallada, no píldoras --- */
+  --radius-sm: 2px;
+  --radius-md: 6px;
+  --radius-lg: 14px;
+  --radius-arch: 999px 999px 0 0;
+
+  /* --- Sombras: luz natural difusa, cálida --- */
+  --shadow-rest:  0 1px 2px rgba(60, 40, 20, .05), 0 8px 24px -12px rgba(60, 40, 20, .12);
+  --shadow-lift:  0 2px 6px rgba(60, 40, 20, .06), 0 30px 60px -28px rgba(80, 52, 22, .35);
+  --shadow-modal: 0 40px 120px -30px rgba(40, 26, 12, .45);
+  --shadow-relief: inset 0 1px 0 rgba(255, 255, 255, .7), inset 0 -1px 0 rgba(110, 84, 40, .12);
+
+  /* --- Movimiento: lento, sereno --- */
+  --ease-silk:  cubic-bezier(.22, .61, .36, 1);
+  --ease-breath: cubic-bezier(.45, 0, .2, 1);
+  --dur-fast: 180ms;
+  --dur-base: 420ms;
+  --dur-slow: 900ms;
+  --blur-glass: 14px;
+}
