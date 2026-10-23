@@ -3,7 +3,7 @@
    Un único requestAnimationFrame; solo transform/opacity; se detiene
    fuera de pantalla y se desactiva con prefers-reduced-motion.
    ================================================================== */
-import { prefersReducedMotion } from "./utils.js?v=colina1";
+import { prefersReducedMotion } from "./utils.js?v=colina2";
 
 export function initMotion() {
   const reduce = prefersReducedMotion();

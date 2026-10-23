@@ -3,10 +3,10 @@
    (no hace falta tocar este archivo para cambiar contenido:
     todo está en js/content.js)
    ================================================================== */
-import { CONFIG, I18N } from "./content.js?v=colina1";
-import { createGallery } from "./gallery.js?v=colina1";
-import { initMotion } from "./motion.js?v=colina1";
-import { $, el, toRoman } from "./utils.js?v=colina1";
+import { CONFIG, I18N } from "./content.js?v=colina2";
+import { createGallery } from "./gallery.js?v=colina2";
+import { initMotion } from "./motion.js?v=colina2";
+import { $, el, toRoman } from "./utils.js?v=colina2";
 
 
 /* ---------- Idioma ---------- */

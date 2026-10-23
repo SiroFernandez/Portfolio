@@ -7,7 +7,7 @@ html {
   scroll-padding-top: 5.5rem;
   -webkit-text-size-adjust: 100%;
   overflow-x: clip;
-  background: var(--olive-deep);
+  background: linear-gradient(var(--sky-deep) 50%, var(--olive-deep) 50%) fixed;
 }
 body {
   margin: 0;
@@ -24,7 +24,7 @@ body {
 /* grano muy fino en toda la página: da el tacto aterciopelado */
 body::before {
   content: ""; position: fixed; inset: 0; z-index: 100; pointer-events: none;
-  background-image: url("../assets/img/grain.png?v=colina1"); background-size: 256px;
+  background-image: url("../assets/img/grain.png?v=colina2"); background-size: 256px;
   opacity: .045; mix-blend-mode: multiply;
 }
 
@@ -65,7 +65,9 @@ a:hover { color: var(--ink); }
 .field { position: relative; isolation: isolate; }
 .field::after { /* terciopelo de hierba */
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background: url("../assets/img/velvet.png?v=colina1") 0 0 / 256px; opacity: .35; mix-blend-mode: soft-light;
+  background: url("../assets/img/velvet.png?v=colina2") 0 0 / 256px; opacity: .35; mix-blend-mode: soft-light;
+  -webkit-mask: linear-gradient(transparent, #000 160px, #000 calc(100% - 160px), transparent);
+          mask: linear-gradient(transparent, #000 160px, #000 calc(100% - 160px), transparent);
 }
 .field--pistachio { background: linear-gradient(175deg, #B4C374 0%, var(--pistachio) 40%, #9DAF5C 100%); }
 .field--moss { background: linear-gradient(170deg, #8CA14D 0%, var(--moss) 45%, #6F8539 100%); }

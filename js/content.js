@@ -44,7 +44,7 @@ export const FILTERS = [
 export const PROJECTS = [
   {
     id: "match4all",
-    art: "assets/works/match4all.svg?v=colina1",
+    art: "assets/works/match4all.svg?v=colina2",
     featured: true,
     filters: ["java", "spring", "web", "realtime"],
     stack: ["Java", "Spring Boot", "WebSockets", "HTML", "Maven"],
@@ -78,7 +78,7 @@ export const PROJECTS = [
   },
   {
     id: "ecosistema",
-    art: "assets/works/ecosistema.svg?v=colina1",
+    art: "assets/works/ecosistema.svg?v=colina2",
     filters: ["java", "desktop"],
     stack: ["Java", "Swing", "JSON", { es: "Hilos", en: "Threads" }, "MVC", { es: "Patrones de diseño", en: "Design patterns" }],
     links: [],
@@ -111,7 +111,7 @@ export const PROJECTS = [
   },
   {
     id: "torneos",
-    art: "assets/works/torneos.svg?v=colina1",
+    art: "assets/works/torneos.svg?v=colina2",
     filters: ["php", "js", "web", "realtime"],
     stack: ["PHP", "JavaScript"],
     links: [],
@@ -144,7 +144,7 @@ export const PROJECTS = [
   },
   {
     id: "alimentacion",
-    art: "assets/works/alimentacion.svg?v=colina1",
+    art: "assets/works/alimentacion.svg?v=colina2",
     featured: true,
     filters: ["ux"],
     stack: [{ es: "Entrevistas a usuarios", en: "User interviews" }, { es: "Prototipado", en: "Prototyping" }],
