@@ -1,48 +1,53 @@
 /* ==================================================================
-   TOKENS DE DISEÑO · "Sfumato"
-   Paleta de óleo cálido, tipografía editorial y movimiento sereno.
-   Contrastes verificados (WCAG 2.2): ver comentarios.
+   TOKENS DE DISEÑO · "Chiaroscuro"
+   Barroco italiano histórico: claroscuro en la portada y el contacto,
+   papel de grabado envejecido en las salas interiores.
+   Contrastes verificados (WCAG 2.2) en los comentarios.
    ================================================================== */
 :root {
-  /* --- Superficies (fondos) --- */
-  --ivory:        #FDFBF7;  /* tarjetas, modal, passe-partout */
-  --bone:         #F4EFEA;  /* fondo de página */
-  --parchment:    #EAE1D3;  /* bandas y secciones alternas */
-  --clay:         #D9C7AE;  /* beige arcilla: decoración, separadores */
-  --glass:        rgba(250, 246, 239, .62); /* vidrio mate sobre cielo */
-  --glass-strong: rgba(250, 246, 239, .86);
+  /* --- Penumbra (superficies oscuras: portada, contacto, pie, modal) --- */
+  --umber-900:   #17100B;  /* sombra más profunda, pie */
+  --umber-800:   #22170F;  /* fondo de portada y contacto */
+  --umber-700:   #33241A;  /* superficies elevadas sobre oscuro */
+  --candle:      #EFE3C8;  /* texto sobre oscuro: 13.8:1 sobre umber-800 */
+  --candle-soft: #BFA98A;  /* texto secundario sobre oscuro: 7.7:1 */
 
-  /* --- Tinta (texto) --- */
-  --ink:          #2A211A;  /* 13.8:1 sobre bone */
-  --ink-soft:     #5E5044;  /* 6.8:1 sobre bone · texto secundario */
+  /* --- Papel (salas interiores) --- */
+  --paper:       #EFE6D2;  /* fondo de página, papel de grabado */
+  --paper-light: #F7F1E3;  /* tarjetas y cartelas */
+  --paper-deep:  #E2D5BA;  /* bandas (taller) */
+
+  /* --- Tinta --- */
+  --ink:         #24190F;  /* texto principal: 13.9:1 sobre paper */
+  --sepia:       #5C4330;  /* texto secundario: 7.4:1 sobre paper, 6.3:1 sobre paper-deep */
 
   /* --- Acentos --- */
-  --sienna:       #9A4A26;  /* siena tostada · enlaces, foco: 5.4:1 sobre bone */
-  --sienna-light: #B5612F;  /* solo decoración */
-  --sage:         #7D8B6F;  /* verde salvia · decoración */
-  --sage-deep:    #4F5D45;  /* salvia para texto: 6.2:1 sobre bone */
-  --gold:         #B8955A;  /* oro suave · marcos y filetes (no texto) */
-  --gold-pale:    #E3CFA4;  /* brillo dorado */
-  --bronze:       #6E5428;  /* bronce viejo · texto sobre marfil: 6.9:1 */
+  --carmine:     #8E2A1F;  /* carmín: enlaces, numerales, foco: 6.8:1 sobre paper */
+  --oxblood:     #5E1A14;  /* sangre de buey: estados activos, terciopelo: 10.4:1 */
+  --gold:        #A9823A;  /* oro viejo: molduras y ornamento sobre papel (no texto) */
+  --gold-bright: #C9A45C;  /* oro iluminado: texto y botones sobre oscuro: 7.5:1 */
+  --gold-pale:   #E6CB8E;  /* destello dorado */
+  --gold-text:   #7A5A22;  /* oro para texto sobre paper: 5.1:1 */
+  --verdigris:   #4E6B5E;  /* pátina de bronce: estados: 4.7:1 sobre paper */
 
   /* --- Líneas --- */
-  --line:         rgba(110, 84, 40, .18); /* filete fino decorativo */
-  --line-strong:  #8F7752;  /* bordes de controles: 4.1:1 sobre ivory, 3.7:1 sobre bone */
+  --line:        rgba(46, 32, 21, .22);
+  --line-strong: #8A6E4B;  /* bordes de controles: 3.8:1 sobre paper */
+  --line-dark:   rgba(201, 164, 92, .35); /* filete dorado sobre oscuro */
 
   /* --- Tipografía --- */
-  --font-display: "Cinzel", "Trajan Pro", Georgia, serif;          /* monumental, solo mayúsculas */
-  --font-serif:   "Cormorant Garamond", "Garamond", Georgia, serif; /* titulares editoriales */
-  --font-sans:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; /* cuerpo y datos */
+  --font-display: "IM Fell English", "Garamond", Georgia, serif;   /* titulares: imprenta del s. XVII */
+  --font-caps:    "IM Fell English SC", "IM Fell English", Georgia, serif; /* versalitas de cartela */
+  --font-sans:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; /* datos y cuerpo */
 
-  --text-xs:   .78rem;   /* etiquetas en versalitas */
+  --text-xs:   .8rem;
   --text-sm:   .9rem;
   --text-base: 1.0625rem;
   --text-lg:   1.25rem;
-  --text-xl:   clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem);   /* títulos de tarjeta */
-  --text-2xl:  clamp(2.4rem, 1.6rem + 3vw, 4rem);       /* h2 */
-  --text-hero: clamp(2.7rem, 1rem + 6.4vw, 6.6rem);     /* nombre */
-  --tracking-display: .12em;
-  --tracking-eyebrow: .28em;
+  --text-xl:   clamp(1.7rem, 1.3rem + 1.4vw, 2.3rem);
+  --text-2xl:  clamp(2.6rem, 1.7rem + 3.4vw, 4.6rem);
+  --text-hero: clamp(3.2rem, 1.2rem + 7vw, 7.6rem);
+  --tracking-caps: .14em;
 
   /* --- Espaciado (escala de 8) --- */
   --space-1: .25rem;
@@ -57,23 +62,25 @@
   --gutter: clamp(1rem, .4rem + 3vw, 3rem);
   --maxw: 76rem;
 
-  /* --- Radios: piedra tallada, no píldoras --- */
-  --radius-sm: 2px;
-  --radius-md: 6px;
-  --radius-lg: 14px;
-  --radius-arch: 999px 999px 0 0;
+  /* --- Radios: piedra y madera tallada, casi rectos --- */
+  --radius-sm: 1px;
+  --radius-md: 3px;
+  --radius-lg: 6px;
 
-  /* --- Sombras: luz natural difusa, cálida --- */
-  --shadow-rest:  0 1px 2px rgba(60, 40, 20, .05), 0 8px 24px -12px rgba(60, 40, 20, .12);
-  --shadow-lift:  0 2px 6px rgba(60, 40, 20, .06), 0 30px 60px -28px rgba(80, 52, 22, .35);
-  --shadow-modal: 0 40px 120px -30px rgba(40, 26, 12, .45);
-  --shadow-relief: inset 0 1px 0 rgba(255, 255, 255, .7), inset 0 -1px 0 rgba(110, 84, 40, .12);
+  /* --- Sombras: luz lateral de vela, cálida y profunda --- */
+  --shadow-rest:  0 1px 2px rgba(36, 25, 15, .12), 0 10px 24px -14px rgba(36, 25, 15, .35);
+  --shadow-lift:  -6px 18px 40px -18px rgba(36, 22, 10, .55), 0 2px 6px rgba(36, 25, 15, .15);
+  --shadow-modal: 0 40px 120px -20px rgba(0, 0, 0, .7);
+  --shadow-relief: inset 0 1px 0 rgba(255, 250, 235, .6), inset 0 -1px 0 rgba(46, 32, 21, .25);
 
-  /* --- Movimiento: lento, sereno --- */
-  --ease-silk:  cubic-bezier(.22, .61, .36, 1);
+  /* --- Dorado de marco --- */
+  --gilt: linear-gradient(135deg, #6B4A1C 0%, #C9A45C 18%, #8A6526 34%, #E6CB8E 50%, #9A7330 66%, #C9A45C 82%, #5E4116 100%);
+
+  /* --- Movimiento: solemne, sin rebotes --- */
+  --ease-silk:   cubic-bezier(.22, .61, .36, 1);
   --ease-breath: cubic-bezier(.45, 0, .2, 1);
   --dur-fast: 180ms;
   --dur-base: 420ms;
   --dur-slow: 900ms;
-  --blur-glass: 14px;
+  --blur-glass: 12px;
 }

@@ -66,7 +66,7 @@ export function initMotion() {
         const my = (eased.y / innerHeight - 0.5);
         heroLayers.forEach((layer) => {
           const d = parseFloat(layer.dataset.depth);
-          layer.style.transform = layer.classList.contains("layer--sun")
+          layer.style.transform = (layer.classList.contains("layer--sun") || layer.classList.contains("layer--shaft"))
             ? `translate3d(${(-mx * d * 60).toFixed(2)}px, ${(sy * d - my * d * 30).toFixed(2)}px, 0)`
             : `translate3d(calc(-50% + ${(-mx * d * 60).toFixed(2)}px), ${(sy * d - my * d * 30).toFixed(2)}px, 0)`;
         });

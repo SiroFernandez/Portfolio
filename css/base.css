@@ -1,5 +1,5 @@
 /* ==================================================================
-   BASE · reset, lienzo, tipografía y utilidades
+   BASE · reset, papel de grabado, tipografía y utilidades
    ================================================================== */
 *, *::before, *::after { box-sizing: border-box; }
 html {
@@ -7,30 +7,31 @@ html {
   scroll-padding-top: 5.5rem;
   -webkit-text-size-adjust: 100%;
   overflow-x: clip;
+  background: var(--umber-900);
 }
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: var(--bone);
+  /* papel envejecido con viñeta: los bordes se oscurecen como en una lámina antigua */
+  background:
+    radial-gradient(130% 90% at 50% 40%, transparent 55%, rgba(120, 84, 40, .16) 100%) fixed,
+    url("../assets/img/paper.webp") 0 0 / 512px,
+    var(--paper);
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: var(--text-base);
   line-height: 1.65;
-  font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: clip;
 }
-/* Grano de lienzo: una capa fija, muy ligera, que no se repinta al hacer scroll */
+/* grano fino de imprenta, en una capa fija que no se repinta */
 body::before {
   content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  pointer-events: none;
+  position: fixed; inset: 0; z-index: 100; pointer-events: none;
   background-image: url("../assets/img/grain.png");
   background-size: 256px;
-  opacity: .07;
+  opacity: .06;
   mix-blend-mode: multiply;
 }
 
@@ -41,28 +42,29 @@ p { margin: 0 0 var(--space-4); }
 ul { margin: 0; padding: 0; list-style: none; }
 
 h1, h2, h3 {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  line-height: 1.05;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.04;
   margin: 0;
   text-wrap: balance;
 }
-h2 { font-size: var(--text-2xl); letter-spacing: -.01em; }
+h2 { font-size: var(--text-2xl); letter-spacing: -.005em; }
 h3 { font-size: var(--text-lg); }
 
 a {
-  color: var(--sienna);
+  color: var(--carmine);
   text-decoration-thickness: 1px;
   text-underline-offset: .22em;
   transition: color var(--dur-fast) var(--ease-silk);
 }
-a:hover { color: var(--ink); }
+a:hover { color: var(--oxblood); }
 
 :focus-visible {
-  outline: 2px solid var(--sienna);
+  outline: 2px solid var(--carmine);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
+.is-dark :focus-visible, .hero :focus-visible, .contact :focus-visible, .site-header :focus-visible, .site-footer :focus-visible { outline-color: var(--gold-bright); }
 ::selection { background: var(--gold-pale); color: var(--ink); }
 
 /* --- Utilidades --- */
@@ -73,26 +75,30 @@ a:hover { color: var(--ink); }
 }
 .skip-link {
   position: fixed; top: var(--space-3); left: var(--space-3); z-index: 200;
-  padding: var(--space-2) var(--space-4); background: var(--ink); color: var(--ivory);
+  padding: var(--space-2) var(--space-4); background: var(--candle); color: var(--ink);
   border-radius: var(--radius-md); transform: translateY(-160%);
   transition: transform var(--dur-fast) var(--ease-silk);
 }
-.skip-link:focus { transform: none; color: var(--ivory); }
+.skip-link:focus { transform: none; color: var(--ink); }
 main:focus { outline: none; }
 
+/* Antetítulo de sala: numeral romano dentro de una cartela barroca + nombre en versalitas */
 .eyebrow {
-  font-family: var(--font-display);
-  font-size: var(--text-xs);
-  font-weight: 500;
-  letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
-  color: var(--bronze);
+  font-family: var(--font-caps);
+  font-size: 1.05rem;
+  letter-spacing: var(--tracking-caps);
+  color: var(--gold-text);
   margin: 0 0 var(--space-4);
   display: flex; align-items: center; gap: var(--space-3);
 }
-.eyebrow .numeral { color: var(--sienna); letter-spacing: .12em; }
-.eyebrow::after {
-  content: ""; flex: 0 0 3rem; height: 1px; background: var(--gold); opacity: .7;
+.eyebrow .numeral {
+  display: inline-grid; place-items: center;
+  width: 80px; height: 50px; flex: none;
+  background: url("../assets/ornaments/cartouche.svg") center / contain no-repeat;
+  font-family: var(--font-display);
+  font-size: 1.15rem; letter-spacing: .04em;
+  color: var(--carmine);
+  padding-bottom: 2px;
 }
 
 .noscript { padding: var(--space-6); text-align: center; }
@@ -101,7 +107,7 @@ main:focus { outline: none; }
 .js .reveal {
   opacity: 0;
   translate: 0 24px;
-  filter: blur(6px);
+  filter: blur(5px);
   /* la demora solo afecta a la aparición; el hover (transform/sombra) responde al instante */
   transition:
     opacity var(--dur-slow) var(--ease-silk) var(--reveal-delay, 0ms),
@@ -112,16 +118,16 @@ main:focus { outline: none; }
 }
 .js .reveal.is-visible { opacity: 1; translate: none; filter: none; }
 
-/* --- Luz del puntero (solo ratón/trackpad y con movimiento permitido) --- */
+/* --- Luz de vela que sigue al puntero (solo ratón y con movimiento permitido) --- */
 .cursor-light, .cursor-ring { display: none; }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .cursor-light {
     display: block;
     position: fixed; left: 0; top: 0; z-index: 90;
-    width: 560px; height: 560px; margin: -280px 0 0 -280px;
+    width: 620px; height: 620px; margin: -310px 0 0 -310px;
     border-radius: 50%;
     pointer-events: none;
-    background: radial-gradient(circle, rgba(255, 233, 186, .42) 0%, rgba(255, 233, 186, .16) 35%, rgba(255, 233, 186, 0) 70%);
+    background: radial-gradient(circle, rgba(255, 210, 140, .34) 0%, rgba(255, 196, 120, .12) 34%, rgba(255, 196, 120, 0) 68%);
     mix-blend-mode: soft-light;
     opacity: 0;
     transition: opacity var(--dur-base) var(--ease-silk);
@@ -130,19 +136,18 @@ main:focus { outline: none; }
   .cursor-ring {
     display: block;
     position: fixed; left: 0; top: 0; z-index: 150;
-    width: 34px; height: 34px; margin: -17px 0 0 -17px;
-    border: 1px solid rgba(154, 74, 38, .55);
+    width: 30px; height: 30px; margin: -15px 0 0 -15px;
+    border: 1px solid rgba(169, 130, 58, .8);
     border-radius: 50%;
     pointer-events: none;
     opacity: 0;
-    transition: opacity var(--dur-base) var(--ease-silk), width var(--dur-base) var(--ease-silk), height var(--dur-base) var(--ease-silk), margin var(--dur-base) var(--ease-silk), background-color var(--dur-base) var(--ease-silk), border-color var(--dur-base);
+    transition: opacity var(--dur-base) var(--ease-silk), width var(--dur-base) var(--ease-silk), height var(--dur-base) var(--ease-silk), margin var(--dur-base) var(--ease-silk), background-color var(--dur-base) var(--ease-silk);
     will-change: transform;
   }
   .has-pointer .cursor-light, .has-pointer .cursor-ring { opacity: 1; }
   .cursor-ring.is-active {
-    width: 64px; height: 64px; margin: -32px 0 0 -32px;
-    background-color: rgba(227, 207, 164, .18);
-    border-color: rgba(184, 149, 90, .8);
+    width: 58px; height: 58px; margin: -29px 0 0 -29px;
+    background-color: rgba(201, 164, 92, .14);
   }
 }
 

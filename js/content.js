@@ -268,7 +268,6 @@ export const I18N = {
     copyBtn: "Copiar email",
     copied: "Email copiado al portapapeles.",
     footer: "© 2026 Siro Fernández García",
-    footerMade: "Diseñado y programado a mano con HTML, CSS y JavaScript.",
     backTop: "Volver arriba"
   },
 
@@ -360,7 +359,6 @@ export const I18N = {
     copyBtn: "Copy email",
     copied: "Email copied to clipboard.",
     footer: "© 2026 Siro Fernández García",
-    footerMade: "Designed and hand-coded with HTML, CSS and JavaScript.",
     backTop: "Back to top"
   }
 };
